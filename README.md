@@ -17,7 +17,7 @@ This application allows the user to play a game of Tic-Tac-Toe. The user will be
 * As a game user, I want to know when the game is over so that I can start a new game.
 
 ### Wireframes ###
-[Click here to view my Wireframes.](https://imgur.com/a/BeCpzRV)
+[Click here to view my wireframes online.](https://imgur.com/a/BeCpzRV)
 
 ![](./images/wireframes/TTT_HP_Lap.jpg)
 ![](./images/wireframes/TTT_HP_Mob.jpg)
