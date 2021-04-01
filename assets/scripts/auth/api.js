@@ -40,8 +40,17 @@ const signOut = function (formData) {
   })
 }
 
+const newGame = function () {
+  return $.ajax({
+    method: 'POST',
+    // asking for new game
+    url: config.apiUrl + '/games'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  newGame
 }

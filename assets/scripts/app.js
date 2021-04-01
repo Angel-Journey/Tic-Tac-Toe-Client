@@ -9,9 +9,14 @@
 const authEvents = require('./auth/events')
 
 $(() => {
+  $('#sign-out').hide()
+  $('#new-game').hide()
+
   $('#sign-up').on('submit', authEvents.onSignUp)
 
   $('#sign-in').on('submit', authEvents.onSignIn)
 
   $('#sign-out').on('click', authEvents.onSignOut)
+
+  $('#new-game').on('click', authEvents.onNewGame)
 })

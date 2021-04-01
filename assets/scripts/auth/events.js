@@ -57,8 +57,22 @@ const onSignOut = function (event) {
     .catch(ui.onError)
 }
 
+const onNewGame = function (event) {
+  // prevent the defaul action of refreshing the page when a form is submitted
+  event.preventDefault()
+
+  console.log('New Game button was clicked!')
+
+  // make a request to submit sign-up form data to API
+  api.newGame()
+    // show success or failure
+    .then(ui.onNewGameSuccess)
+    .catch(ui.onError)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
-  onSignOut
+  onSignOut,
+  onNewGame
 }

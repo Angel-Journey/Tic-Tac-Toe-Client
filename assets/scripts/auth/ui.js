@@ -9,6 +9,7 @@ const onSignUpSuccess = function () {
 
   $('form').trigger('reset')
   $('#sign-out').show()
+  $('#new-game').show()
 }
 
 const onSignInSuccess = function (response) {
@@ -19,10 +20,10 @@ const onSignInSuccess = function (response) {
   $('#message').addClass('success')
 
   $('form').trigger('reset')
-  $('#change-password').show()
-  $('#sign-up').hide()
-  $('#sign-in').hide()
+  $('#sign-up-btn').hide()
+  $('#sign-in-btn').hide()
   $('#sign-out').show()
+  $('#new-game').show()
 }
 
 const onSignOutSuccess = function (response) {
@@ -30,9 +31,9 @@ const onSignOutSuccess = function (response) {
 
   $('#message').addClass('success')
   $('#sign-out').hide()
-  $('#change-password').hide()
-  $('#sign-in').show()
-  $('#sign-up').show()
+  $('#new-game').hide()
+  $('#sign-in-btn').show()
+  $('#sign-up-btn').show()
   store.user = null
 }
 
@@ -45,9 +46,14 @@ const onError = function (err) {
   $('form').trigger('reset')
 }
 
+const onNewGameSuccess = function () {
+  console.log('New Game button was clicked!')
+}
+
 module.exports = {
   onSignUpSuccess,
   onError,
   onSignInSuccess,
-  onSignOutSuccess
+  onSignOutSuccess,
+  onNewGameSuccess
 }
