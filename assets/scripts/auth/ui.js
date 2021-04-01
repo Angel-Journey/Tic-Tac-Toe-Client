@@ -10,6 +10,8 @@ const onSignUpSuccess = function () {
   $('form').trigger('reset')
   $('#sign-out').show()
   $('#new-game').show()
+  $('#sign-up-btn').hide()
+  $('#sign-in-btn').hide()
 }
 
 const onSignInSuccess = function (response) {

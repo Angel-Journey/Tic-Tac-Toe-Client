@@ -52,24 +52,24 @@ const newGame = function (data) {
   })
 }
 
-// const newGameBoard = function () {
-//   return $.ajax({
-//     method: 'GET',
-//     // asking for new game board
-//     url: config.apiUrl + '/games',
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     }
-//   })
-// }
-//
+const newGameBoard = function () {
+  return $.ajax({
+    method: 'GET',
+    // asking for new game board
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 // const newGameBoardID = function () {
 //   return $.ajax({
 //     method: 'GET',
 //     // asking for new game board
 //     url: config.apiUrl + '/games/:id',
 //     headers: {
-//       Authorization: 'Bearer ' + store.user.token
+//       Authorization: 'Bearer ' + store.game._id
 //     }
 //   })
 // }
@@ -78,7 +78,7 @@ module.exports = {
   signUp,
   signIn,
   signOut,
-  newGame
-  // newGameBoard,
+  newGame,
+  newGameBoard
   // newGameBoardID
 }

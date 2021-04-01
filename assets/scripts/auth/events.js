@@ -13,6 +13,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const onSignUp = function (event) {
   // prevent the defaul action of refreshing the page when a form is submitted
   event.preventDefault()
+  $('#signUpModal').modal('toggle')
 
   // event.target is our '#sign-up' form so store it in a better named variable
   const form = event.target
@@ -31,6 +32,7 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   // prevent the defaul action of refreshing the page when a form is submitted
   event.preventDefault()
+  $('#signInModal').modal('toggle')
 
   // event.target is our ''#sign-up' form so store it in a better named variable
   const form = event.target
@@ -63,7 +65,7 @@ const onNewGame = function (event) {
 
   // make a request to API
   api.newGame()
-  // api.newGameBoard()
+  api.newGameBoard()
   // api.newGameBoardID()
     // show success or failure
     .then(ui.onNewGameSuccess)
