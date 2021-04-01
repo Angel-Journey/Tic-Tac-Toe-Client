@@ -39,7 +39,7 @@ const onSignIn = function (event) {
 
   console.log(formData)
 
-  // make a request to submit sign-up form data to API
+  // make a request to API
   api.signIn(formData)
     // show success or failure
     .then(ui.onSignInSuccess)
@@ -50,7 +50,7 @@ const onSignOut = function (event) {
   // prevent the defaul action of refreshing the page when a form is submitted
   event.preventDefault()
 
-  // make a request to submit sign-up form data to API
+  // make a request to API
   api.signOut()
     // show success or failure
     .then(ui.onSignOutSuccess)
@@ -58,13 +58,13 @@ const onSignOut = function (event) {
 }
 
 const onNewGame = function (event) {
-  // prevent the defaul action of refreshing the page when a form is submitted
+  // prevent the default action of refreshing the page when a form is submitted
   event.preventDefault()
 
-  console.log('New Game button was clicked!')
-
-  // make a request to submit sign-up form data to API
+  // make a request to API
   api.newGame()
+  // api.newGameBoard()
+  // api.newGameBoardID()
     // show success or failure
     .then(ui.onNewGameSuccess)
     .catch(ui.onError)

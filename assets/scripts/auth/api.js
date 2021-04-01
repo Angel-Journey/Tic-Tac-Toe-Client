@@ -40,17 +40,45 @@ const signOut = function (formData) {
   })
 }
 
-const newGame = function () {
+const newGame = function (data) {
   return $.ajax({
     method: 'POST',
     // asking for new game
-    url: config.apiUrl + '/games'
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: data
   })
 }
+
+// const newGameBoard = function () {
+//   return $.ajax({
+//     method: 'GET',
+//     // asking for new game board
+//     url: config.apiUrl + '/games',
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//     }
+//   })
+// }
+//
+// const newGameBoardID = function () {
+//   return $.ajax({
+//     method: 'GET',
+//     // asking for new game board
+//     url: config.apiUrl + '/games/:id',
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//     }
+//   })
+// }
 
 module.exports = {
   signUp,
   signIn,
   signOut,
   newGame
+  // newGameBoard,
+  // newGameBoardID
 }

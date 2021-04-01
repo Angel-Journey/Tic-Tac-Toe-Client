@@ -46,8 +46,10 @@ const onError = function (err) {
   $('form').trigger('reset')
 }
 
-const onNewGameSuccess = function () {
+const onNewGameSuccess = function (data) {
   console.log('New Game button was clicked!')
+  $('#game-Board').show()
+  console.log(data)
 }
 
 module.exports = {
