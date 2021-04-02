@@ -75,11 +75,11 @@ const oldGameBoardID = function () {
   })
 }
 
-// const newMove = function (id, data) {
+// const newMove = function (index, value, data) {
 //   return $.ajax({
 //     method: 'PATCH',
 //     // asking to update game
-//     url: config.apiUrl + '/games/' + id,
+//     url: config.apiUrl + '/games/id',
 //     headers: {
 //       Authorization: 'Bearer ' + store.user.token
 //     },

@@ -2,7 +2,7 @@
 
 const store = require('../store') // will store user info (from onSignInSuccess)
 
-const gamePlay = require('../game-play')
+// const gamePlay = require('../game-play')
 
 const onSignUpSuccess = function () {
   $('#message').text('Success! Thank you for signing up!')
@@ -79,7 +79,16 @@ const oldGameBoardIDSuccess = function (data) {
 const newMoveSuccess = function (event) {
   console.log('New move button was clicked!')
   const cell = event.target.id
-  $('#' + cell).text(gamePlay)
+  console.log(cell)
+  if ($(event.target).text('') === '') {
+    console.log('empty')
+  }
+  // if (cell === 'game-box-zero') {
+  //   $('#' + cell).text('X')
+  // } else if (cell === 'game-box-one') {
+  //   $('#' + cell).text('O')
+  // }
+
   // $('#game-box-zero').html('TEST')
   // console.log(data)
   // console.log($(event.target).id)

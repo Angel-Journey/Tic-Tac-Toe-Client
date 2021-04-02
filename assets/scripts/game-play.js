@@ -1,5 +1,5 @@
-const gamePlay = function () {
-  $('#game-box-zero').html('TESTING')
+const gamePlay = function (cell) {
+  // $('#game-box-zero').html('TESTING')
   // if ($('#') === $('#game-box-zero')) {
   //   $('#game-box-zero').html('TESTING')
   // // }
