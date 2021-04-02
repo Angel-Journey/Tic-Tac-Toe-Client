@@ -69,10 +69,9 @@ const onGameHistorySuccess = function (data) {
   console.log(data)
 }
 
-const oldGameBoardIDSuccess = function (data) {
-  store.game = data.game
+const oldGameBoardIDSuccess = function () {
   console.log('Old Game button was clicked!')
-  console.log(data)
+  console.log()
 }
 
 module.exports = {
