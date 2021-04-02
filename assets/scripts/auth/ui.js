@@ -76,7 +76,8 @@ const oldGameBoardIDSuccess = function (data) {
 
 const newMoveSuccess = function (data) {
   console.log('New move button was clicked!')
-  console.log(data)
+  // console.log(data)
+  // console.log($(event.target).id)
 }
 
 module.exports = {

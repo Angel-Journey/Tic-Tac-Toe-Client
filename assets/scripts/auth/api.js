@@ -75,17 +75,17 @@ const oldGameBoardID = function () {
   })
 }
 
-const newMove = function (id, data) {
-  return $.ajax({
-    method: 'PATCH',
-    // asking to update game
-    url: config.apiUrl + '/games/' + id,
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    data: data
-  })
-}
+// const newMove = function (id, data) {
+//   return $.ajax({
+//     method: 'PATCH',
+//     // asking to update game
+//     url: config.apiUrl + '/games/' + id,
+//     headers: {
+//       Authorization: 'Bearer ' + store.user.token
+//     },
+//     data: data
+//   })
+// }
 
 module.exports = {
   signUp,
@@ -93,6 +93,6 @@ module.exports = {
   signOut,
   newGame,
   newGameHistory,
-  oldGameBoardID,
-  newMove
+  oldGameBoardID
+  // newMove
 }

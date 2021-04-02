@@ -95,14 +95,17 @@ const onOldGameBoardID = function (event) {
 const onNewMoveClick = function (event) {
   event.preventDefault()
 
-  console.log('New move button was clicked!')
+  const cellIndex = $(event.target).data('cell-index')
+
+  console.log(cellIndex)
 
   ui.newMoveSuccess()
 
-  api.newMove()
-    // show success or failure
-    .then(ui.newMoveSuccess)
-    .catch(ui.onError)
+  //
+  // api.newMove()
+  //   // show success or failure
+  //   .then(ui.newMoveSuccess)
+  //   .catch(ui.onError)
 }
 
 module.exports = {
