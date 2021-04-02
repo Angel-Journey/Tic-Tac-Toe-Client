@@ -10,6 +10,8 @@ const onSignUpSuccess = function () {
   $('form').trigger('reset')
   $('#sign-out').show()
   $('#new-game').show()
+  $('#old-game').show()
+  $('#game-history').show()
   $('#sign-up-btn').hide()
   $('#sign-in-btn').hide()
 }
@@ -26,6 +28,8 @@ const onSignInSuccess = function (response) {
   $('#sign-in-btn').hide()
   $('#sign-out').show()
   $('#new-game').show()
+  $('#old-game').show()
+  $('#game-history').show()
 }
 
 const onSignOutSuccess = function (response) {
@@ -34,6 +38,8 @@ const onSignOutSuccess = function (response) {
   $('#message').addClass('success')
   $('#sign-out').hide()
   $('#new-game').hide()
+  $('#old-game').hide()
+  $('#game-history').hide()
   $('#sign-in-btn').show()
   $('#sign-up-btn').show()
   store.user = null
@@ -49,8 +55,23 @@ const onError = function (err) {
 }
 
 const onNewGameSuccess = function (data) {
+  store.game = data.game
   console.log('New Game button was clicked!')
+  console.log(data.game)
   $('#game-Board').show()
+  $('#game-history').show()
+  $('#old-game').show()
+  console.log(data)
+}
+
+const onGameHistorySuccess = function (data) {
+  console.log('Game History button was clicked!')
+  console.log(data)
+}
+
+const oldGameBoardIDSuccess = function (data) {
+  store.game = data.game
+  console.log('Old Game button was clicked!')
   console.log(data)
 }
 
@@ -59,5 +80,7 @@ module.exports = {
   onError,
   onSignInSuccess,
   onSignOutSuccess,
-  onNewGameSuccess
+  onNewGameSuccess,
+  onGameHistorySuccess,
+  oldGameBoardIDSuccess
 }

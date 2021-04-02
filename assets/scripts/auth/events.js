@@ -65,10 +65,31 @@ const onNewGame = function (event) {
 
   // make a request to API
   api.newGame()
-  api.newGameBoard()
   // api.newGameBoardID()
     // show success or failure
     .then(ui.onNewGameSuccess)
+    .catch(ui.onError)
+}
+
+const onGameHistory = function (event) {
+  // prevent the default action of refreshing the page when a form is submitted
+  event.preventDefault()
+
+  // make a request to API
+  api.newGameHistory()
+    // show success or failure
+    .then(ui.onGameHistorySuccess)
+    .catch(ui.onError)
+}
+
+const onOldGameBoardID = function (event) {
+  // prevent the default action of refreshing the page when a form is submitted
+  event.preventDefault()
+
+  // make a request to API
+  api.oldGameBoardID()
+    // show success or failure
+    .then(ui.oldGameBoardIDSuccess)
     .catch(ui.onError)
 }
 
@@ -76,5 +97,7 @@ module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onNewGame
+  onNewGame,
+  onGameHistory,
+  onOldGameBoardID
 }

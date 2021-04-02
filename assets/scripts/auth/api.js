@@ -52,33 +52,35 @@ const newGame = function (data) {
   })
 }
 
-const newGameBoard = function () {
+const newGameHistory = function (data) {
   return $.ajax({
     method: 'GET',
     // asking for new game board
     url: config.apiUrl + '/games',
     headers: {
       Authorization: 'Bearer ' + store.user.token
-    }
+    },
+    data: data
   })
 }
 
-// const newGameBoardID = function () {
-//   return $.ajax({
-//     method: 'GET',
-//     // asking for new game board
-//     url: config.apiUrl + '/games/:id',
-//     headers: {
-//       Authorization: 'Bearer ' + store.game._id
-//     }
-//   })
-// }
+const oldGameBoardID = function (data) {
+  return $.ajax({
+    method: 'GET',
+    // asking for new game board
+    url: config.apiUrl + '/games/:id',
+    headers: {
+      Authorization: 'Bearer ' + store.game._id
+    },
+    data: data
+  })
+}
 
 module.exports = {
   signUp,
   signIn,
   signOut,
   newGame,
-  newGameBoard
-  // newGameBoardID
+  newGameHistory,
+  oldGameBoardID
 }
