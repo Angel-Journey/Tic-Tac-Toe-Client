@@ -65,7 +65,6 @@ const onNewGame = function (event) {
 
   // make a request to API
   api.newGame()
-  // api.newGameBoardID()
     // show success or failure
     .then(ui.onNewGameSuccess)
     .catch(ui.onError)
@@ -93,11 +92,25 @@ const onOldGameBoardID = function (event) {
     .catch(ui.onError)
 }
 
+const onNewMoveClick = function (event) {
+  event.preventDefault()
+
+  console.log('New move button was clicked!')
+
+  ui.newMoveSuccess()
+
+  api.newMove()
+    // show success or failure
+    .then(ui.newMoveSuccess)
+    .catch(ui.onError)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onNewGame,
   onGameHistory,
-  onOldGameBoardID
+  onOldGameBoardID,
+  onNewMoveClick
 }

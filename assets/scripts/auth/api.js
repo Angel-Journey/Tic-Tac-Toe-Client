@@ -27,7 +27,7 @@ const signIn = function (formData) {
   })
 }
 
-const signOut = function (formData) {
+const signOut = function () {
   console.log('store is ', store)
   return $.ajax({
     method: 'DELETE',
@@ -40,7 +40,7 @@ const signOut = function (formData) {
   })
 }
 
-const newGame = function (data) {
+const newGame = function (gameData) {
   return $.ajax({
     method: 'POST',
     // asking for new game
@@ -48,11 +48,11 @@ const newGame = function (data) {
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    data: data
+    data: gameData
   })
 }
 
-const newGameHistory = function (data) {
+const newGameHistory = function (gameData) {
   return $.ajax({
     method: 'GET',
     // asking for new game board
@@ -60,17 +60,28 @@ const newGameHistory = function (data) {
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    data: data
+    data: gameData
   })
 }
 
-const oldGameBoardID = function (data) {
+const oldGameBoardID = function () {
   return $.ajax({
     method: 'GET',
-    // asking for new game board
-    url: config.apiUrl + '/games/:id',
+    // asking for old game board
+    url: config.apiUrl + '/games',
     headers: {
-      Authorization: 'Bearer ' + store.game._id
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
+const newMove = function (id, data) {
+  return $.ajax({
+    method: 'PATCH',
+    // asking to update game
+    url: config.apiUrl + '/games/' + id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
     },
     data: data
   })
@@ -82,5 +93,6 @@ module.exports = {
   signOut,
   newGame,
   newGameHistory,
-  oldGameBoardID
+  oldGameBoardID,
+  newMove
 }

@@ -69,9 +69,14 @@ const onGameHistorySuccess = function (data) {
   console.log(data)
 }
 
-const oldGameBoardIDSuccess = function () {
+const oldGameBoardIDSuccess = function (data) {
   console.log('Old Game button was clicked!')
-  console.log()
+  console.log(data)
+}
+
+const newMoveSuccess = function (data) {
+  console.log('New move button was clicked!')
+  console.log(data)
 }
 
 module.exports = {
@@ -81,5 +86,6 @@ module.exports = {
   onSignOutSuccess,
   onNewGameSuccess,
   onGameHistorySuccess,
-  oldGameBoardIDSuccess
+  oldGameBoardIDSuccess,
+  newMoveSuccess
 }
