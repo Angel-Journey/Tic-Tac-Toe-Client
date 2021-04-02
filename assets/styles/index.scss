@@ -1,8 +1,26 @@
 @import '~bootstrap/scss/bootstrap';
 
-$alt-color: $cyan;
-$body-bg-color: $gray-200;
-$font-color: $light;
+// $alt-color: $cyan;
+// $body-bg-color: $gray-200;
+// $font-color: $light;
+
+h1 {
+  align-items: center;
+  display: flex;
+  justify-content: center
+}
+
+#message {
+  align-items: center;
+  display: flex;
+  justify-content: center
+}
+
+.buttons {
+    align-items: center;
+    display: flex;
+    justify-content: center
+}
 
 .success {
   color: green;
@@ -14,20 +32,17 @@ $font-color: $light;
 
 .box {
   align-items: center;
-  background-color: $secondary;
-  border: 1px solid $white;
-  color: $font-color;
+  background-color: #132257;
+  border: 1px solid #FFFFFF;
+  // color: blue;
   display: flex;
   height: 80px;
   justify-content: center;
-}
-
-.alt-color {
-  background-color: $alt-color;
 }
 
 #game-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #FFFFFF;
 }

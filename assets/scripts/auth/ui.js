@@ -2,6 +2,8 @@
 
 const store = require('../store') // will store user info (from onSignInSuccess)
 
+const gamePlay = require('../game-play')
+
 const onSignUpSuccess = function () {
   $('#message').text('Success! Thank you for signing up!')
 
@@ -74,10 +76,16 @@ const oldGameBoardIDSuccess = function (data) {
   console.log(data)
 }
 
-const newMoveSuccess = function (data) {
+const newMoveSuccess = function (event) {
   console.log('New move button was clicked!')
+  const cell = event.target.id
+  $('#' + cell).text(gamePlay)
+  // $('#game-box-zero').html('TEST')
   // console.log(data)
   // console.log($(event.target).id)
+  // const cells = event.target.id
+  // const list = $('#' + cells).toArray()
+  // console.log(list)
 }
 
 module.exports = {

@@ -68,7 +68,7 @@ const oldGameBoardID = function () {
   return $.ajax({
     method: 'GET',
     // asking for old game board
-    url: config.apiUrl + '/games',
+    url: config.apiUrl + '/games/:id',
     headers: {
       Authorization: 'Bearer ' + store.user.token
     }

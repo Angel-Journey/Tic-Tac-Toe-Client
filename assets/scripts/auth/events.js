@@ -10,6 +10,8 @@ const ui = require('./ui')
 // import the getFormFields function
 const getFormFields = require('../../../lib/get-form-fields')
 
+// const store = require('../store')
+
 const onSignUp = function (event) {
   // prevent the defaul action of refreshing the page when a form is submitted
   event.preventDefault()
@@ -81,9 +83,11 @@ const onGameHistory = function (event) {
     .catch(ui.onError)
 }
 
-const onOldGameBoardID = function (event) {
+const onOldGameBoardID = function () {
   // prevent the default action of refreshing the page when a form is submitted
   event.preventDefault()
+
+  // event.target is our ''#sign-up' form so store it in a better named variable
 
   // make a request to API
   api.oldGameBoardID()
@@ -99,7 +103,7 @@ const onNewMoveClick = function (event) {
 
   console.log(cellIndex)
 
-  ui.newMoveSuccess()
+  ui.newMoveSuccess(event)
 
   //
   // api.newMove()
