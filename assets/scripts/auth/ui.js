@@ -89,12 +89,17 @@ const newMoveSuccess = function (event) {
   //   $('#' + cell).text('O')
   // }
 
-  // $('#game-box-zero').html('TEST')
+  $('#game-box-zero').html('X')
   // console.log(data)
   // console.log($(event.target).id)
   // const cells = event.target.id
   // const list = $('#' + cells).toArray()
   // console.log(list)
+
+  const box = $(event.target)
+  box.css('background', 'transparent')
+  // box.text(currentPlayer)
+  // currentPlayer = currentPlayer === '0' ? 'x' : '0'
 }
 
 module.exports = {
