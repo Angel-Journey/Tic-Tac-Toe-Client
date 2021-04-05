@@ -10,6 +10,8 @@ const ui = require('./ui')
 // import the getFormFields function
 const getFormFields = require('../../../lib/get-form-fields')
 
+const gamePlay = require('./gamePlay')
+
 // const store = require('../store')
 
 const onSignUp = function (event) {
@@ -99,9 +101,10 @@ const onOldGameBoardID = function () {
 const onNewMoveClick = function (event) {
   event.preventDefault()
 
-  const cellIndex = $(event.target).data('cell-index')
-
-  console.log(cellIndex) // shows number of cell clicked
+  // const cellIndex = $(event.target).data('cell-index')
+  // // gamePlay.updateArray(cellIndex)
+  //
+  // console.log(cellIndex) // shows number of cell clicked
 
   ui.newMoveSuccess(event)
 

@@ -1,4 +1,5 @@
-const currentPlayer = function (event) {
+const updateArray = function (cellIndex) {
+  console.log(cellIndex)
 //   event = currentPlayer === 'O' ? 'X' : 'O'
 // }
   // $('#game-box-zero').html('TESTING')
@@ -6,5 +7,7 @@ const currentPlayer = function (event) {
   //   $('#game-box-zero').html('TESTING')
   // // }
   // $('#game-box-one').html('TESTING 2')
+
+
 }
-module.exports = currentPlayer
+module.exports = updateArray

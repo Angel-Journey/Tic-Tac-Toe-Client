@@ -56,9 +56,9 @@ h1, h2, p {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  justify-content: center;
-  display: flex;
-  align-items: center;
+  // justify-content: center;
+  // display: flex;
+  // align-items: center;
 }
 
 .box {
@@ -77,9 +77,10 @@ h1, h2, p {
 
   // set the minimum height for each box
   // min-height: calc(100% / 3);
+  // min-width: calc(100% / 3);
   height: 80px;
 
-  // center the text in the board
+  // center the text in each box
   display: flex;
   justify-content: center;
   align-items: center;

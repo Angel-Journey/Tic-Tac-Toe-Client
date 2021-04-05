@@ -2,7 +2,7 @@
 
 const store = require('../store') // will store user info (from onSignInSuccess)
 
-// const currentPlayer = require('../game-play')
+// const gamePlay = require('./gamePlay')
 
 const onSignUpSuccess = function () {
   $('#message').text('Success! Thank you for signing up!')
@@ -16,6 +16,13 @@ const onSignUpSuccess = function () {
   $('#game-history').show()
   $('#sign-up-btn').hide()
   $('#sign-in-btn').hide()
+
+  setTimeout(() => {
+    // Clear the success message
+    $('#message').text('')
+    // Remove the class of 'success' from the element
+    $('#message').removeClass('success')
+  }, 5000)
 }
 
 const onSignInSuccess = function (response) {
@@ -33,6 +40,13 @@ const onSignInSuccess = function (response) {
   $('#new-game').show()
   $('#old-game').show()
   $('#game-history').show()
+
+  setTimeout(() => {
+    // Clear the success message
+    $('#message').text('')
+    // Remove the class of 'success' from the element
+    $('#message').removeClass('success')
+  }, 5000)
 }
 
 const onSignOutSuccess = function (response) {
@@ -46,6 +60,13 @@ const onSignOutSuccess = function (response) {
   $('#sign-in-btn').show()
   $('#sign-up-btn').show()
   store.user = null
+
+  setTimeout(() => {
+    // Clear the success message
+    $('#message').text('')
+    // Remove the class of 'success' from the element
+    $('#message').removeClass('success')
+  }, 5000)
 }
 
 const onError = function (err) {
@@ -55,6 +76,13 @@ const onError = function (err) {
   $('#message').addClass('failure')
 
   $('form').trigger('reset')
+
+  setTimeout(() => {
+    // Clear the error message
+    $('#message').text('')
+    // Remove the class of 'success' from the element
+    $('#message').removeClass('failure')
+  }, 5000)
 }
 
 const onNewGameSuccess = function (data) {
@@ -82,10 +110,10 @@ let currentPlayer = 'X'
 
 const newMoveSuccess = function (event) {
   console.log('New move button was clicked!')
-  console.log(event)
-  const cell = event.target
-  console.log(cell.id) // for example, 'game-box-zero'
-  console.log(cell)
+  // console.log(event)
+  // // const cell = event.target
+  // // // console.log(cell.id) // for example, 'game-box-zero'
+  // // // console.log(cell)
 
   const box = $(event.target)
   box.css('background', 'transparent')
@@ -93,17 +121,29 @@ const newMoveSuccess = function (event) {
     box.text(currentPlayer)
     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
     $('#game-message').text(box.text() + ' has made their move!')
+    $('#game-message').addClass('success')
     setTimeout(() => {
       // Clear the game-message
       $('#game-message').text('')
+      $('#game-message').removeClass('success')
     }, 4000)
   } else if (box.text() === 'O' || box.text() === 'X') {
     $('#game-message').text('That space is taken! Please try again!')
+    $('#game-message').addClass('failure')
     setTimeout(() => {
       // Clear the game-message
       $('#game-message').text('')
-    }, 2000)
+      $('#game-message').removeClass('failure')
+    }, 2500)
   }
+  const cellIndex = $(event.target).data('cell-index')
+  console.log(cellIndex) // shows number of cell clicked
+  console.log(box.text()) // shows which value ('X' or 'O') was entered
+  console.log(cellIndex, box.text())
+  console.log(cellIndex + box.text())
+  // if (cellIndex + box.text() === '0X' && cellIndex + box.text() === '1X' && cellIndex + box.text() === '2X') {
+  //   $('#game-message').text('X Wins!')
+  // }
 }
 
 // // if ($(event.target).text('') === '') {
