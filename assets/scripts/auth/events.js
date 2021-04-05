@@ -101,7 +101,7 @@ const onNewMoveClick = function (event) {
 
   const cellIndex = $(event.target).data('cell-index')
 
-  console.log(cellIndex)
+  console.log(cellIndex) // shows number
 
   ui.newMoveSuccess(event)
 

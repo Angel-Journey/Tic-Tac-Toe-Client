@@ -5,13 +5,14 @@
 // $font-color: $light;
 
 body {
-  background-color: grey;
+  background-color: black;
 }
 
-h1 {
+h1, h2, p {
   align-items: center;
   display: flex;
-  justify-content: center
+  justify-content: center;
+  color: #00B140
 }
 
 #message {
@@ -27,7 +28,7 @@ h1 {
 }
 
 .success {
-  color: green;
+  color: #00B140;
 }
 
 .failure {
@@ -35,7 +36,7 @@ h1 {
 }
 
 .container {
-  background-color: grey;
+  background-color: black;
   // set the container to take up 100% of the viewport's height
   // it will scale to the entire height
   // height: 100vh;
@@ -61,8 +62,8 @@ h1 {
 }
 
 .box {
-  border-right: 1px solid #FFFFFF;
-  border-bottom: 1px solid #FFFFFF;
+  border-right: 1px solid #00B140;
+  border-bottom: 1px solid #00B140;
 
   // selecting the three right boxes, nth-child select elements based on their position
   // 3n selects every third element (box)
@@ -83,17 +84,17 @@ h1 {
   justify-content: center;
   align-items: center;
 
-  background-color: #009dc4;
-  color: white;
+  background-color: black;
+  color: #878787;
   //make the font larger, take up 15% of the viewport's height
   // font-size: 15vh;
-  font-size: 30px;
+  font-size: 50px;
 
-  text-shadow: 4px 2px rgba(0, 0, 0, .25);
+  text-shadow: 4px 2px rgba(17, 17, 17, .25);
 
   // when moust hovers over a box, change color to:
   &:hover {
-    background-color: darkgreen;
+    background-color: #00B140;
   }
 
   // make sure the user cannot select the text when clicking on
