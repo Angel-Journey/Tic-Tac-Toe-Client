@@ -75,17 +75,25 @@ const oldGameBoardID = function () {
   })
 }
 
-// const newMove = function (index, value, data) {
-//   return $.ajax({
-//     method: 'PATCH',
-//     // asking to update game
-//     url: config.apiUrl + '/games/id',
-//     headers: {
-//       Authorization: 'Bearer ' + store.user.token
-//     },
-//     data: data
-//   })
-// }
+const newMove = function (cellIndex) {
+  return $.ajax({
+    method: 'PATCH',
+    // asking to update game
+    url: config.apiUrl + '/games/' + store.game._id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data: {
+      "game": {
+          "cell": {
+            "index": cellIndex,
+            "value": store.user.value
+          },
+          "over": false
+        }
+      }
+  })
+}
 
 module.exports = {
   signUp,
@@ -93,6 +101,6 @@ module.exports = {
   signOut,
   newGame,
   newGameHistory,
-  oldGameBoardID
-  // newMove
+  oldGameBoardID,
+  newMove
 }

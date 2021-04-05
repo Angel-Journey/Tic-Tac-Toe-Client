@@ -87,7 +87,7 @@ const onOldGameBoardID = function () {
   // prevent the default action of refreshing the page when a form is submitted
   event.preventDefault()
 
-  // event.target is our ''#sign-up' form so store it in a better named variable
+  // event.target is our 'clicked cell' form so store it in a better named variable
 
   // make a request to API
   api.oldGameBoardID()
@@ -101,12 +101,12 @@ const onNewMoveClick = function (event) {
 
   const cellIndex = $(event.target).data('cell-index')
 
-  console.log(cellIndex) // shows number
+  console.log(cellIndex) // shows number of cell clicked
 
   ui.newMoveSuccess(event)
 
   //
-  // api.newMove()
+  // api.newMove(cellIndex)
   //   // show success or failure
   //   .then(ui.newMoveSuccess)
   //   .catch(ui.onError)
