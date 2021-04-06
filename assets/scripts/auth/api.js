@@ -74,8 +74,9 @@ const oldGameBoardID = function () {
     }
   })
 }
+// store.game.id
 
-const newMove = function (cellIndex) {
+const newMove = function (cellIndex, value) {
   return $.ajax({
     method: 'PATCH',
     // asking to update game
@@ -84,14 +85,14 @@ const newMove = function (cellIndex) {
       Authorization: 'Bearer ' + store.user.token
     },
     data: {
-      "game": {
-          "cell": {
-            "index": cellIndex,
-            "value": store.user.value
-          },
-          "over": false
-        }
+      game: {
+        cell: {
+          index: cellIndex,
+          value: value
+        },
+        over: false
       }
+    }
   })
 }
 

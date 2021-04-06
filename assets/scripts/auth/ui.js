@@ -2,6 +2,9 @@
 
 const store = require('../store') // will store user info (from onSignInSuccess)
 
+// import the functions that make requests to the api
+const api = require('./api')
+
 // const gamePlay = require('./gamePlay')
 
 const onSignUpSuccess = function () {
@@ -38,8 +41,8 @@ const onSignInSuccess = function (response) {
   $('#sign-in-btn').hide()
   $('#sign-out').show()
   $('#new-game').show()
-  $('#old-game').show()
-  $('#game-history').show()
+  // $('#old-game').show()
+  // $('#game-history').show()
 
   setTimeout(() => {
     // Clear the success message
@@ -57,6 +60,7 @@ const onSignOutSuccess = function (response) {
   $('#new-game').hide()
   $('#old-game').hide()
   $('#game-history').hide()
+  $('#game-Board').hide()
   $('#sign-in-btn').show()
   $('#sign-up-btn').show()
   store.user = null
@@ -90,10 +94,10 @@ const onNewGameSuccess = function (data) {
   console.log('New Game button was clicked!')
   console.log(data.game)
   $('#game-Board').show()
-  $('#game-history').show()
-  $('#old-game').show()
+  // $('#game-history').show()
+  // $('#old-game').show()
   // console.log(store.game)
-  console.log(store.game._id)
+  console.log(store.game._id) // shows game id
 }
 
 const onGameHistorySuccess = function (data) {
@@ -107,10 +111,13 @@ const oldGameBoardIDSuccess = function (data) {
 }
 
 let currentPlayer = 'X'
+let gameArray = ['', '', '', '', '', '', '', '', '']
 
 const newMoveSuccess = function (event) {
   console.log('New move button was clicked!')
-  // console.log(event)
+  // store.game = event.game
+  // console.log(store.game._id) // ***doesn't grab game id***
+  console.log(event)
   // // const cell = event.target
   // // // console.log(cell.id) // for example, 'game-box-zero'
   // // // console.log(cell)
@@ -138,11 +145,51 @@ const newMoveSuccess = function (event) {
   }
   const cellIndex = $(event.target).data('cell-index')
   console.log(cellIndex) // shows number of cell clicked
-  console.log(box.text()) // shows which value ('X' or 'O') was entered
-  console.log(cellIndex, box.text())
-  console.log(cellIndex + box.text())
+  const value = (box.text())
+  console.log(value) // shows which value ('X' or 'O') was entered
+  api.newMove(cellIndex, value)
+  // console.log(store.game.cells) // shows an empty array? but network shows filled out array
+
+  // console.log(cellIndex, value)
+  // console.log(cellIndex + value)
   // if (cellIndex + box.text() === '0X' && cellIndex + box.text() === '1X' && cellIndex + box.text() === '2X') {
   //   $('#game-message').text('X Wins!')
+  // }
+
+  // const gamePiece = cellIndex + value
+  // gameArray.push(gamePiece)
+  // console.log(gameArray)
+  // if (gameArray === ['0X', '1X', '2X']) {
+  //   $('#game-message').text('X Wins!')
+  // }
+
+  // const row1 = cellIndex 0 && cellIndex 1 && cellIndex 2
+  // console.log(row1)
+
+  // console.log(store.game.cells)
+  // console.log(store.game.cells[1])
+  // const gameIndex = store.game.cells
+  gameArray[cellIndex] = value
+  console.log(gameArray)
+  if ((gameArray[0] === value && gameArray[1] === value && gameArray[2] === value) ||
+  (gameArray[3] === value && gameArray[4] === value && gameArray[5] === value) ||
+  (gameArray[6] === value && gameArray[7] === value && gameArray[8] === value) ||
+  (gameArray[0] === value && gameArray[3] === value && gameArray[6] === value) ||
+  (gameArray[1] === value && gameArray[4] === value && gameArray[7] === value) ||
+  (gameArray[2] === value && gameArray[5] === value && gameArray[8] === value) ||
+  (gameArray[0] === value && gameArray[4] === value && gameArray[8] === value) ||
+  (gameArray[2] === value && gameArray[4] === value && gameArray[6] === value)) {
+    console.log(value + ' wins!')
+    $('#win-message').text(value + ' wins!')
+    $('#win-message').addClass('success')
+  }
+  // else if
+  // ((gameArray[0] === 'X' || 'O') && (gameArray[1] === 'X' || 'O') && (gameArray[2] === 'X' || 'O') &&
+  // (gameArray[3] === 'X' || 'O') && (gameArray[4] === 'X' || 'O') && (gameArray[5] === 'X' || 'O') &&
+  // (gameArray[6] === 'X' || 'O') && (gameArray[7] === 'X' || 'O') && (gameArray[8] === 'X' || 'O')) {
+  //   console.log('It is a tie!')
+  //   $('#win-message').text('It is a tie!')
+  //   $('#win-message').addClass('success')
   // }
 }
 

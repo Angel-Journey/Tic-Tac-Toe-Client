@@ -7,7 +7,6 @@ const updateArray = function (cellIndex) {
   //   $('#game-box-zero').html('TESTING')
   // // }
   // $('#game-box-one').html('TESTING 2')
-
-
 }
+
 module.exports = updateArray

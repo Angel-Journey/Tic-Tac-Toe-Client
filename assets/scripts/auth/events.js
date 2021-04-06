@@ -10,7 +10,7 @@ const ui = require('./ui')
 // import the getFormFields function
 const getFormFields = require('../../../lib/get-form-fields')
 
-const gamePlay = require('./gamePlay')
+// const gamePlay = require('./gamePlay')
 
 // const store = require('../store')
 
