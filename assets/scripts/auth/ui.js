@@ -111,16 +111,12 @@ const oldGameBoardIDSuccess = function (data) {
 }
 
 let currentPlayer = 'X'
-let gameArray = ['', '', '', '', '', '', '', '', '']
+// let gameArray = ['', '', '', '', '', '', '', '', '']
 
 const newMoveSuccess = function (event) {
   console.log('New move button was clicked!')
-  // store.game = event.game
-  // console.log(store.game._id) // ***doesn't grab game id***
+
   console.log(event)
-  // // const cell = event.target
-  // // // console.log(cell.id) // for example, 'game-box-zero'
-  // // // console.log(cell)
 
   const box = $(event.target)
   box.css('background', 'transparent')
@@ -148,37 +144,17 @@ const newMoveSuccess = function (event) {
   const value = (box.text())
   console.log(value) // shows which value ('X' or 'O') was entered
   api.newMove(cellIndex, value)
-  // console.log(store.game.cells) // shows an empty array? but network shows filled out array
 
-  // console.log(cellIndex, value)
-  // console.log(cellIndex + value)
-  // if (cellIndex + box.text() === '0X' && cellIndex + box.text() === '1X' && cellIndex + box.text() === '2X') {
-  //   $('#game-message').text('X Wins!')
-  // }
-
-  // const gamePiece = cellIndex + value
-  // gameArray.push(gamePiece)
-  // console.log(gameArray)
-  // if (gameArray === ['0X', '1X', '2X']) {
-  //   $('#game-message').text('X Wins!')
-  // }
-
-  // const row1 = cellIndex 0 && cellIndex 1 && cellIndex 2
-  // console.log(row1)
-
-  // console.log(store.game.cells)
-  // console.log(store.game.cells[1])
-  // const gameIndex = store.game.cells
-  gameArray[cellIndex] = value
-  console.log(gameArray)
-  if ((gameArray[0] === value && gameArray[1] === value && gameArray[2] === value) ||
-  (gameArray[3] === value && gameArray[4] === value && gameArray[5] === value) ||
-  (gameArray[6] === value && gameArray[7] === value && gameArray[8] === value) ||
-  (gameArray[0] === value && gameArray[3] === value && gameArray[6] === value) ||
-  (gameArray[1] === value && gameArray[4] === value && gameArray[7] === value) ||
-  (gameArray[2] === value && gameArray[5] === value && gameArray[8] === value) ||
-  (gameArray[0] === value && gameArray[4] === value && gameArray[8] === value) ||
-  (gameArray[2] === value && gameArray[4] === value && gameArray[6] === value)) {
+  store.game.cells[cellIndex] = value // assigns 'X' or 'O' to the array
+  console.log(store.game.cells)
+  if ((store.game.cells[0] === value && store.game.cells[1] === value && store.game.cells[2] === value) ||
+  (store.game.cells[3] === value && store.game.cells[4] === value && store.game.cells[5] === value) ||
+  (store.game.cells[6] === value && store.game.cells[7] === value && store.game.cells[8] === value) ||
+  (store.game.cells[0] === value && store.game.cells[3] === value && store.game.cells[6] === value) ||
+  (store.game.cells[1] === value && store.game.cells[4] === value && store.game.cells[7] === value) ||
+  (store.game.cells[2] === value && store.game.cells[5] === value && store.game.cells[8] === value) ||
+  (store.game.cells[0] === value && store.game.cells[4] === value && store.game.cells[8] === value) ||
+  (store.game.cells[2] === value && store.game.cells[4] === value && store.game.cells[6] === value)) {
     console.log(value + ' wins!')
     $('#win-message').text(value + ' wins!')
     $('#win-message').addClass('success')
@@ -191,22 +167,11 @@ const newMoveSuccess = function (event) {
   //   $('#win-message').text('It is a tie!')
   //   $('#win-message').addClass('success')
   // }
+
+  // store.game.cells[cellIndex] = value
+  // console.log(store.game.cells)
+  // console.log(store.game.cells)
 }
-
-// // if ($(event.target).text('') === '') {
-// //   console.log('empty')
-// }
-// if (cell === 'game-box-zero') {
-//   $('#' + cell).text('X')
-// } else if (cell === 'game-box-one') {
-//   $('#' + cell).text('O')
-// }
-
-// console.log(data)
-// console.log($(event.target).id)
-// const cells = event.target.id
-// const list = $('#' + cells).toArray()
-// console.log(list)
 
 module.exports = {
   onSignUpSuccess,
