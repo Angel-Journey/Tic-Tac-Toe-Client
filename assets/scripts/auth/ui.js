@@ -8,17 +8,17 @@ const api = require('./api')
 // const gamePlay = require('./gamePlay')
 
 const onSignUpSuccess = function () {
-  $('#message').text('Success! Thank you for signing up!')
+  $('#message').text('Success! Thank you for joinging the roster!')
 
   $('#message').addClass('success')
 
   $('form').trigger('reset')
-  $('#sign-out').show()
-  $('#new-game').show()
-  $('#old-game').show()
-  $('#game-history').show()
+  $('#sign-out').hide()
+  $('#new-game').hide()
+  $('#old-game').hide()
+  $('#game-history').hide()
   $('#sign-up-btn').hide()
-  $('#sign-in-btn').hide()
+  $('#sign-in-btn').show()
 
   setTimeout(() => {
     // Clear the success message

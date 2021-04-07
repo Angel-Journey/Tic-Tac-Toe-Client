@@ -5,7 +5,7 @@ This application allows the user to play a game of Tic-Tac-Toe. The user will be
 
 ## Important Links ##
 
-<!-- [To be setup...](...) -->
+[Play game here.](https://angel-journey.github.io/Tika-Taka-Toe/)
 
 ## Planning ##
 
