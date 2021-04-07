@@ -76,16 +76,16 @@ const onSignOutSuccess = function () {
 const onError = function (err) {
   // log any errors that occur
   console.error(err)
-  $('#message').text('Red card! Sorry, please try again.')
-  $('#message').addClass('failure')
+  $('#game-message').text('Red card! Sorry, please try again.')
+  $('#game-message').addClass('failure')
 
   $('form').trigger('reset')
 
   setTimeout(() => {
     // Clear the error message
-    $('#message').text('')
+    $('#game-message').text('')
     // Remove the class of 'success' from the element
-    $('#message').removeClass('failure')
+    $('#game-message').removeClass('failure')
   }, 5000)
 }
 
