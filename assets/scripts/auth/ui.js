@@ -63,6 +63,7 @@ const onSignOutSuccess = function () {
   $('#game-Board').hide()
   $('#sign-in-btn').show()
   $('#sign-up-btn').show()
+  $('#win-message').hide()
   store.user = null
 
   setTimeout(() => {
