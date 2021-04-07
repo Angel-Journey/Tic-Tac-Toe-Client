@@ -10,7 +10,7 @@ header {
   // background: url('https://images.unsplash.com/photo-1561016444-14f747499547?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1189&q=80');
   font-family: 'Calligraffitti', cursive;
   padding-top: 10px;
-  padding-bottom: 1px;
+  padding-bottom: 0.5px;
 }
 
 body {
@@ -38,6 +38,7 @@ h1 {
   display: flex;
   justify-content: center;
   color: #00B140;
+  font-size: 60px;
 }
 
 h2, h3, h4, h5, p {
