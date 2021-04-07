@@ -32,7 +32,7 @@ const onSignInSuccess = function (response) {
   store.user = response.user
   console.log(store.user.value)
   console.log(store)
-  $('#message').text(response.user.email + ' signed in successfully!')
+  $('#message').text(response.user.email + ' has entered the pitch!')
 
   $('#message').addClass('success')
 
@@ -52,8 +52,8 @@ const onSignInSuccess = function (response) {
   }, 5000)
 }
 
-const onSignOutSuccess = function (response) {
-  $('#message').text('Sign out successful!')
+const onSignOutSuccess = function () {
+  $('#message').text(store.user.email + ' has left the pitch!')
 
   $('#message').addClass('success')
   $('#sign-out').hide()
@@ -76,7 +76,7 @@ const onSignOutSuccess = function (response) {
 const onError = function (err) {
   // log any errors that occur
   console.error(err)
-  $('#message').text('Something went wrong, please try again.')
+  $('#message').text('Red card! Sorry, please try again.')
   $('#message').addClass('failure')
 
   $('form').trigger('reset')
@@ -90,6 +90,7 @@ const onError = function (err) {
 }
 
 const onNewGameSuccess = function (data) {
+  $('#message').text('Game on! Player X kicks off!')
   store.game = data.game
   console.log('New Game button was clicked!')
   console.log(data.game)
@@ -98,6 +99,11 @@ const onNewGameSuccess = function (data) {
   // $('#old-game').show()
   // console.log(store.game)
   console.log(store.game._id) // shows game id
+  setTimeout(() => {
+    // Clear the game-message
+    $('#message').text('')
+    $('#message').removeClass('success')
+  }, 5000)
 }
 
 const onGameHistorySuccess = function (data) {
@@ -131,12 +137,12 @@ const newMoveSuccess = function (event) {
       $('#game-message').removeClass('success')
     }, 4000)
   } else if (box.text() === 'O' || box.text() === 'X') {
-    $('#game-message').text('That space is taken! Please try again!')
-    $('#game-message').addClass('failure')
+    $('#game-message').text('Foul! Please try again!')
+    $('#game-message').addClass('yellow')
     setTimeout(() => {
       // Clear the game-message
       $('#game-message').text('')
-      $('#game-message').removeClass('failure')
+      $('#game-message').removeClass('yellow')
     }, 2500)
   }
   const cellIndex = $(event.target).data('cell-index')
@@ -156,8 +162,8 @@ const newMoveSuccess = function (event) {
   (store.game.cells[0] === value && store.game.cells[4] === value && store.game.cells[8] === value) ||
   (store.game.cells[2] === value && store.game.cells[4] === value && store.game.cells[6] === value)) {
     console.log(value + ' wins!')
-    $('#win-message').text(value + ' wins!')
-    $('#win-message').addClass('success')
+    $('#win-message').text('Golazo! ' + value + ' wins!')
+    $('#win-message').addClass('winner')
   }
   // else if
   // ((gameArray[0] === 'X' || 'O') && (gameArray[1] === 'X' || 'O') && (gameArray[2] === 'X' || 'O') &&
