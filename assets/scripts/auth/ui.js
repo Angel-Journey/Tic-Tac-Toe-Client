@@ -96,6 +96,19 @@ const onNewGameSuccess = function (data) {
   console.log('New Game button was clicked!')
   console.log(data.game)
   $('#game-Board').show()
+  $('#win-message').text('')
+  store.game.cells[0] = ''
+  store.game.cells[1] = ''
+  store.game.cells[2] = ''
+  store.game.cells[3] = ''
+  store.game.cells[4] = ''
+  store.game.cells[5] = ''
+  store.game.cells[6] = ''
+  store.game.cells[7] = ''
+  store.game.cells[8] = ''
+  console.log($('box').text())
+  console.log($('game-box-one').html(''))
+  // $('game-box-zero').text() = ''
   // $('#game-history').show()
   // $('#old-game').show()
   // console.log(store.game)
@@ -165,6 +178,9 @@ const newMoveSuccess = function (event) {
     console.log(value + ' wins!')
     $('#win-message').text('Golazo! ' + value + ' wins!')
     $('#win-message').addClass('winner')
+    $('#game-Board').hide()
+    $('.box').text('')
+    $('.box').removeAttr('style')
   }
   // else if
   // ((gameArray[0] === 'X' || 'O') && (gameArray[1] === 'X' || 'O') && (gameArray[2] === 'X' || 'O') &&
