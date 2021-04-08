@@ -178,9 +178,10 @@ const newMoveSuccess = function (event) {
     console.log(value + ' wins!')
     $('#win-message').text('Golazo! ' + value + ' wins!')
     $('#win-message').addClass('winner')
-    $('#game-Board').hide()
-    $('.box').text('')
-    $('.box').removeAttr('style')
+    // $('#game-Board').hide()
+    // $('.box').text('')
+    // $('.box').removeAttr('style')
+    $('.box').off('click')
   }
   // else if
   // ((gameArray[0] === 'X' || 'O') && (gameArray[1] === 'X' || 'O') && (gameArray[2] === 'X' || 'O') &&
