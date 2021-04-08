@@ -97,6 +97,9 @@ const onNewGameSuccess = function (data) {
   console.log(data.game)
   $('#game-Board').show()
   $('#win-message').text('')
+  $('.box').text('')
+  $('.box').removeAttr('style')
+  $('.box').on('click')
   store.game.cells[0] = ''
   store.game.cells[1] = ''
   store.game.cells[2] = ''
@@ -106,9 +109,6 @@ const onNewGameSuccess = function (data) {
   store.game.cells[6] = ''
   store.game.cells[7] = ''
   store.game.cells[8] = ''
-  console.log($('box').text())
-  console.log($('game-box-one').html(''))
-  // $('game-box-zero').text() = ''
   // $('#game-history').show()
   // $('#old-game').show()
   // console.log(store.game)
@@ -181,7 +181,8 @@ const newMoveSuccess = function (event) {
     // $('#game-Board').hide()
     // $('.box').text('')
     // $('.box').removeAttr('style')
-    $('.box').off('click')
+    // $('.box').off('click')
+    $('.box').css('pointer-events', 'none')
   }
   // else if
   // ((gameArray[0] === 'X' || 'O') && (gameArray[1] === 'X' || 'O') && (gameArray[2] === 'X' || 'O') &&
