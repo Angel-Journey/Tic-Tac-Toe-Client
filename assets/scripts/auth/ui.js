@@ -89,6 +89,7 @@ const onError = function (err) {
     $('#game-message').removeClass('failure')
   }, 5000)
 }
+let currentPlayer = 'X'
 
 const onNewGameSuccess = function (data) {
   $('#message').text('Game on! Player X kicks off!')
@@ -130,7 +131,7 @@ const oldGameBoardIDSuccess = function (data) {
   console.log(data)
 }
 
-let currentPlayer = 'X'
+// let currentPlayer = 'X'
 // let gameArray = ['', '', '', '', '', '', '', '', '']
 
 const newMoveSuccess = function (event) {
@@ -183,6 +184,7 @@ const newMoveSuccess = function (event) {
     // $('.box').removeAttr('style')
     // $('.box').off('click')
     $('.box').css('pointer-events', 'none')
+    currentPlayer = 'X'
   }
   // else if
   // ((gameArray[0] === 'X' || 'O') && (gameArray[1] === 'X' || 'O') && (gameArray[2] === 'X' || 'O') &&
