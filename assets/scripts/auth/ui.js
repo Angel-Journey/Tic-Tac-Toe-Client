@@ -93,6 +93,7 @@ let currentPlayer = 'X'
 
 const onNewGameSuccess = function (data) {
   $('#message').text('Game on! Player X kicks off!')
+  currentPlayer = 'X'
   store.game = data.game
   console.log('New Game button was clicked!')
   console.log(data.game)
@@ -133,8 +134,10 @@ const oldGameBoardIDSuccess = function (data) {
 
 // let currentPlayer = 'X'
 // let gameArray = ['', '', '', '', '', '', '', '', '']
+// const tie = 'X' || 'O'
 
 const newMoveSuccess = function (event) {
+  console.log(store.game.__v)
   console.log('New move button was clicked!')
 
   console.log(event)
@@ -168,14 +171,15 @@ const newMoveSuccess = function (event) {
 
   store.game.cells[cellIndex] = value // assigns 'X' or 'O' to the array
   console.log(store.game.cells)
+  console.log(store.game.cells.length)
   if ((store.game.cells[0] === value && store.game.cells[1] === value && store.game.cells[2] === value) ||
-  (store.game.cells[3] === value && store.game.cells[4] === value && store.game.cells[5] === value) ||
-  (store.game.cells[6] === value && store.game.cells[7] === value && store.game.cells[8] === value) ||
-  (store.game.cells[0] === value && store.game.cells[3] === value && store.game.cells[6] === value) ||
-  (store.game.cells[1] === value && store.game.cells[4] === value && store.game.cells[7] === value) ||
-  (store.game.cells[2] === value && store.game.cells[5] === value && store.game.cells[8] === value) ||
-  (store.game.cells[0] === value && store.game.cells[4] === value && store.game.cells[8] === value) ||
-  (store.game.cells[2] === value && store.game.cells[4] === value && store.game.cells[6] === value)) {
+      (store.game.cells[3] === value && store.game.cells[4] === value && store.game.cells[5] === value) ||
+      (store.game.cells[6] === value && store.game.cells[7] === value && store.game.cells[8] === value) ||
+      (store.game.cells[0] === value && store.game.cells[3] === value && store.game.cells[6] === value) ||
+      (store.game.cells[1] === value && store.game.cells[4] === value && store.game.cells[7] === value) ||
+      (store.game.cells[2] === value && store.game.cells[5] === value && store.game.cells[8] === value) ||
+      (store.game.cells[0] === value && store.game.cells[4] === value && store.game.cells[8] === value) ||
+      (store.game.cells[2] === value && store.game.cells[4] === value && store.game.cells[6] === value)) {
     console.log(value + ' wins!')
     $('#win-message').text('Golazo! ' + value + ' wins!')
     $('#win-message').addClass('winner')
@@ -185,19 +189,24 @@ const newMoveSuccess = function (event) {
     // $('.box').off('click')
     $('.box').css('pointer-events', 'none')
     currentPlayer = 'X'
+  } else if ((store.game.cells[0] && store.game.cells[1] && store.game.cells[2] &&
+  store.game.cells[3] && store.game.cells[4] && store.game.cells[5] &&
+  store.game.cells[6] && store.game.cells[7] && store.game.cells[8]) !== '') {
+    console.log('It is a draw!')
+    $('#win-message').text('It is a draw!')
+    $('#win-message').addClass('winner')
+    $('.box').css('pointer-events', 'none')
+    currentPlayer = 'X'
   }
-  // else if
-  // ((gameArray[0] === 'X' || 'O') && (gameArray[1] === 'X' || 'O') && (gameArray[2] === 'X' || 'O') &&
-  // (gameArray[3] === 'X' || 'O') && (gameArray[4] === 'X' || 'O') && (gameArray[5] === 'X' || 'O') &&
-  // (gameArray[6] === 'X' || 'O') && (gameArray[7] === 'X' || 'O') && (gameArray[8] === 'X' || 'O')) {
-  //   console.log('It is a tie!')
-  //   $('#win-message').text('It is a tie!')
-  //   $('#win-message').addClass('success')
-  // }
 
   // store.game.cells[cellIndex] = value
   // console.log(store.game.cells)
   // console.log(store.game.cells)
+
+  // (store.game.cells === ['X' || '0', 'X' || '0', 'X' || '0', 'X' || '0', 'X' || '0', 'X' || '0', 'X' || '0', 'X' || '0', 'X' || '0']) {
+  // // ((store.game.cells[0] && store.game.cells[1] && store.game.cells[2] &&
+  // // store.game.cells[3] && store.game.cells[4] && store.game.cells[5] &&
+  // // store.game.cells[6] && store.game.cells[7] && store.game.cells[8]) === 'X' || '0')
 }
 
 module.exports = {
