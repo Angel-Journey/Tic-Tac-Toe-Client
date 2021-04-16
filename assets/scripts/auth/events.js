@@ -24,7 +24,7 @@ const onSignUp = function (event) {
   // get the data from our form
   const formData = getFormFields(form)
 
-  console.log(formData)
+  // console.log(formData)
 
   // make a request to submit sign-up form data to API
   api.signUp(formData)
@@ -43,7 +43,7 @@ const onSignIn = function (event) {
   // get the data from our form
   const formData = getFormFields(form)
 
-  console.log(formData)
+  // console.log(formData)
 
   // make a request to API
   api.signIn(formData)

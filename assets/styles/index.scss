@@ -11,6 +11,7 @@ header {
   font-family: 'Calligraffitti', cursive;
   padding-top: 10px;
   padding-bottom: 0.5px;
+  width: 100%;
 }
 
 body {
@@ -45,7 +46,8 @@ h2, h3, h4, h5, p {
   align-items: center;
   display: flex;
   justify-content: center;
-  color: #878787;
+  // color: #878787;
+  color: #00B140;
 }
 
 #message {
@@ -68,29 +70,33 @@ h2, h3, h4, h5, p {
 .winner {
   color: white;
   font-size: 50px;
+  text-shadow: 4px 2px rgba(0, 0, 0, .25);
 }
 
 .success {
   color: white;
   font-size: 30px;
+  text-shadow: 4px 2px rgba(0, 0, 0, .25);
 }
 
 .failure {
-  color: darkred;
+  color: maroon;
   font-size: 30px;
+  text-shadow: 4px 2px rgba(54, 0, 0, .25);
 }
 
 .yellow {
   color: yellow;
   font-size: 30px;
+  text-shadow: 4px 2px rgba(255, 255, 0, .15);
 }
 
 .container {
   background-color: black;
   // set the container to take up 100% of the viewport's height
   // it will scale to the entire height
-  height: 60vh;
-  width: 60vh;
+  height: 50vh;
+  width: 50vh;
   // justify-content: center;
   // display: flex;
   // align-items: center;
@@ -100,7 +106,7 @@ h2, h3, h4, h5, p {
   // set the max size of the board to be 100% of the viewport's max-height
   // -75px so we have a buffer at the bottom
   max-height: calc(100vh - 75px);
-  // max-width: calc(100vh - 75px);
+  // max-width: calc(100vw - 75px);
 
   background: url('https://cdn.vox-cdn.com/thumbor/11mhrHY3u3_1VJmlhmpqQzysOP0=/0x0:1862x1284/920x613/filters:focal(783x494:1079x790):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/60990129/AFC.0.jpg');
   background-repeat: no-repeat;
@@ -129,6 +135,7 @@ h2, h3, h4, h5, p {
   // set the minimum height for each box
   min-height: calc(100% / 3);
   min-width: calc(100% / 3);
+  max-width: 75vw;
   // height: 80px;
 
   // center the text in each box
