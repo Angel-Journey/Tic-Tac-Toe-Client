@@ -191,7 +191,7 @@ const newMoveSuccess = function (event) {
   store.game.cells[6] && store.game.cells[7] && store.game.cells[8]) !== '') {
     // console.log('It is a draw!')
     $('#game-message').hide()
-    $('#win-message').text("It's is a draw!")
+    $('#win-message').text("It's a draw!")
     $('#win-message').addClass('winner')
     $('.box').css('pointer-events', 'none')
     currentPlayer = 'X'
