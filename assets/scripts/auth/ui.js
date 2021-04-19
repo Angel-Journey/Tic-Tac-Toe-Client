@@ -49,7 +49,7 @@ const onSignInSuccess = function (response) {
     $('#message').text('')
     // Remove the class of 'success' from the element
     $('#message').removeClass('success')
-  }, 5000)
+  }, 2500)
 }
 
 const onSignOutSuccess = function () {
@@ -92,7 +92,14 @@ const onError = function (err) {
 let currentPlayer = 'X'
 
 const onNewGameSuccess = function (data) {
-  $('#message').text('Game on! Player X kicks off!')
+  $('#game-message').show()
+  $('#game-message').text('Game on! Player X kicks off!')
+  $('#game-message').addClass('success')
+  setTimeout(() => {
+    // Clear the game-message
+    $('#game-message').text('')
+    $('#game-message').removeClass('success')
+  }, 3000)
   currentPlayer = 'X'
   store.game = data.game
   // console.log('New Game button was clicked!')
@@ -115,11 +122,6 @@ const onNewGameSuccess = function (data) {
   // $('#old-game').show()
   // console.log(store.game)
   // console.log(store.game._id) // shows game id
-  setTimeout(() => {
-    // Clear the game-message
-    $('#message').text('')
-    $('#message').removeClass('success')
-  }, 3000)
 }
 
 const onGameHistorySuccess = function (data) {
@@ -190,7 +192,7 @@ const newMoveSuccess = function (event) {
   store.game.cells[3] && store.game.cells[4] && store.game.cells[5] &&
   store.game.cells[6] && store.game.cells[7] && store.game.cells[8]) !== '') {
     // console.log('It is a draw!')
-    $('#game-message').hide()
+    // $('#message').hide()
     $('#win-message').text("It's a draw!")
     $('#win-message').addClass('winner')
     $('.box').css('pointer-events', 'none')
