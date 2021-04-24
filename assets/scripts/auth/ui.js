@@ -19,6 +19,7 @@ const onSignUpSuccess = function () {
   $('#game-history').hide()
   $('#sign-up-btn').hide()
   $('#sign-in-btn').show()
+  $('#win-message').text('')
 
   setTimeout(() => {
     // Clear the success message
@@ -64,6 +65,7 @@ const onSignOutSuccess = function () {
   $('#sign-in-btn').show()
   $('#sign-up-btn').show()
   $('#win-message').hide()
+  $('#game-message').hide()
   store.user = null
 
   setTimeout(() => {
@@ -95,11 +97,11 @@ const onNewGameSuccess = function (data) {
   $('#game-message').show()
   $('#game-message').text('Game on! Player X kicks off!')
   $('#game-message').addClass('success')
-  setTimeout(() => {
-    // Clear the game-message
-    $('#game-message').text('')
-    $('#game-message').removeClass('success')
-  }, 3000)
+  // setTimeout(() => {
+  //   // Clear the game-message
+  //   $('#game-message').text('')
+  //   $('#game-message').removeClass('success')
+  // }, 3000)
   currentPlayer = 'X'
   store.game = data.game
   // console.log('New Game button was clicked!')
@@ -147,18 +149,18 @@ const newMoveSuccess = function (event) {
     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
     $('#game-message').text(box.text() + ' has made their move!')
     $('#game-message').addClass('success')
-    setTimeout(() => {
-      // Clear the game-message
-      $('#game-message').text('')
-      $('#game-message').removeClass('success')
-    }, 4000)
+    // setTimeout(() => {
+    //   // Clear the game-message
+    //   $('#game-message').text('')
+    //   $('#game-message').removeClass('success')
+    // }, 4000)
   } else if (box.text() === 'O' || box.text() === 'X') {
-    $('#game-message').text('Foul! Please try again!')
-    $('#game-message').addClass('yellow')
+    $('#foul-message').text('Foul! Please try again!')
+    $('#foul-message').addClass('yellow')
     setTimeout(() => {
       // Clear the game-message
-      $('#game-message').text('')
-      $('#game-message').removeClass('yellow')
+      $('#foul-message').text('')
+      $('#foul-message').removeClass('yellow')
     }, 2500)
   }
   const cellIndex = $(event.target).data('cell-index')
