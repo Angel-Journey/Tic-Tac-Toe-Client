@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tika-Taka-Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+      <style>
+      @import url('https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap');
+      </style>
+    </head>
+    <body>
+      <header>
+      <h1>Tika-Taka-Toe</h1>
+        </header>
+
+    <!-- <div id="bg">
+      <img src="https://wallpapercave.com/wp/wp7733233.jpg" alt="">
+    </div> -->
+
+  <!-- <section class="top-buttons"> -->
+    <div class="buttons">
+      <!-- Sign Up Button trigger modal -->
+        <button type="button" id="sign-up-btn" class="btn btn-primary" data-toggle="modal" data-target="#signUpModal">
+          Sign Up
+        </button>
+
+        <!-- Sign Up Modal -->
+        <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <!-- Sign Up Form -->
+                <form id="sign-up">
+                  <input name="credentials[email]" type="email" placeholder="Enter email here" required>
+                  <input name="credentials[password]" type="password" placeholder="Enter password here" required>
+                  <input name="credentials[password_confirmation]" type="password" placeholder="Confirm password here" required>
+                  <input type="submit" value="Sign Up"/>
+                  <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#signUpModal">
+                    Sign Up
+                  </button> -->
+                </form>
+
+              </div>
+              <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Sign In Button trigger modal -->
+          <button type="button" id="sign-in-btn" class="btn btn-success" data-toggle="modal" data-target="#signInModal">
+            Sign In
+          </button>
+
+          <!-- Sign In Modal -->
+          <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="signInModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="signInModal">Sign In</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+                  <!-- Sign In Form -->
+                  <form id="sign-in">
+                    <input name="credentials[email]" type="email" placeholder="Enter email here" required>
+                    <input name="credentials[password]" type="password" placeholder="Enter password here" required>
+                    <input type="submit" value="Sign In"/>
+                  </form>
+
+                </div>
+                <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+              </div>
+            </div>
+          </div>
+
+      <button type="button" class="btn btn-primary" id="sign-out">Sign Out</button>
+
+      <button type="button" class="btn btn-success"id="new-game">New Game</button>
+
+      <button type="button" class="btn btn-success"id="game-history">Game History</button>
+
+      <button type="button" class="btn btn-info"id="old-game">Old Game</button>
+    </div>
+    <!-- <hr> -->
+      <h1 id="win-message"></h1>
+      <h3 id="game-message"></h3>
+      <h5 id="message"></h5>
+      <h5 id="foul-message"></h5>
+    <!-- <hr> -->
+
+      <div id="game-Board">
+
+    <!-- <hr> -->
+        <section class='container'>
+          <div class='row h-100 board'>
+
+            <div class="col-4 box" data-cell-index='0' id="game-box-zero"></div>
+            <div class="col-4 box" data-cell-index='1' id="game-box-one"></div>
+            <div class="col-4 box" data-cell-index='2' id="game-box-two"></div>
+
+            <div class="col-4 box" data-cell-index='3' id="game-box-three"></div>
+            <div class="col-4 box" data-cell-index='4' id="game-box-four"></div>
+            <div class="col-4 box" data-cell-index='5' id="game-box-five"></div>
+
+            <div class="col-4 box" data-cell-index='6' id="game-box-six"></div>
+            <div class="col-4 box" data-cell-index='7' id="game-box-seven"></div>
+            <div class="col-4 box" data-cell-index='8' id="game-box-eight"></div>
+
+          </div>
+        </section>
+      </div>
+
+    </body>
+</html>
