@@ -28,7 +28,7 @@ const signIn = function (formData) {
 }
 
 const signOut = function () {
-  console.log('store is ', store)
+  // console.log('store is ', store)
   return $.ajax({
     method: 'DELETE',
     // removing info for the user
