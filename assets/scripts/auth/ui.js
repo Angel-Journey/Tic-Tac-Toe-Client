@@ -97,6 +97,8 @@ const onNewGameSuccess = function (data) {
   $('#game-message').show()
   $('#game-message').text('Game on! Player X kicks off!')
   $('#game-message').addClass('success')
+  $('#game-Board').show()
+  $('#win-message').text('')
   // setTimeout(() => {
   //   // Clear the game-message
   //   $('#game-message').text('')
@@ -106,8 +108,6 @@ const onNewGameSuccess = function (data) {
   store.game = data.game
   // console.log('New Game button was clicked!')
   // console.log(data.game)
-  $('#game-Board').show()
-  $('#win-message').text('')
   $('.box').text('')
   $('.box').removeAttr('style')
   $('.box').on('click')
@@ -195,6 +195,7 @@ const newMoveSuccess = function (event) {
   store.game.cells[6] && store.game.cells[7] && store.game.cells[8]) !== '') {
     // console.log('It is a draw!')
     // $('#message').hide()
+    $('#game-message').hide()
     $('#win-message').text("It's a draw!")
     $('#win-message').addClass('winner')
     $('.box').css('pointer-events', 'none')
